@@ -31,7 +31,8 @@ public class DataCollectionImpl: IDataCollection {
             ("Authorization", "Bearer exampleToken123"),
             ("Content-Type", "application/json")
         };
-        return new IDataCollection.EdgeeRequest(IDataCollection.HttpMethod.POST, url, headers, "");
+        string body = "{\"event\": \"page\"}";
+        return new IDataCollection.EdgeeRequest(IDataCollection.HttpMethod.POST, url, headers, body);
     }
     public static IDataCollection.EdgeeRequest Track(IDataCollection.Event e, List<(string, string)> creds) {
         string url = "https://example.com/";
@@ -40,7 +41,8 @@ public class DataCollectionImpl: IDataCollection {
             ("Authorization", "Bearer exampleToken123"),
             ("Content-Type", "application/json")
         };
-        return new IDataCollection.EdgeeRequest(IDataCollection.HttpMethod.POST, url, headers, "");
+        string body = "{\"event\": \"track\"}";
+        return new IDataCollection.EdgeeRequest(IDataCollection.HttpMethod.POST, url, headers, body);
     }
     public static IDataCollection.EdgeeRequest User(IDataCollection.Event e, List<(string, string)> creds) {
         string url = "https://example.com/";
@@ -49,7 +51,8 @@ public class DataCollectionImpl: IDataCollection {
             ("Authorization", "Bearer exampleToken123"),
             ("Content-Type", "application/json")
         };
-        return new IDataCollection.EdgeeRequest(IDataCollection.HttpMethod.POST, url, headers, "");
+        string body = "{\"event\": \"user\"}";
+        return new IDataCollection.EdgeeRequest(IDataCollection.HttpMethod.POST, url, headers, body);
     }
 }
 
