@@ -16,6 +16,12 @@ This is an example of a C# Edgee Component.
 ## Setup
 Requirements:
 - dotnet SDK 9.0
+- Modify the csproj file to match your OS:
+    - On Linux
+```dotnet add package runtime.linux-x64.microsoft.dotnet.ilcompiler.llvm --prerelease```
+    - On Windows
+```dotnet add package runtime.win-x64.microsoft.dotnet.ilcompiler.llvm --prerelease```
+
 ## Building
 
 ```shell
