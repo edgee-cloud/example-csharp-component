@@ -1,0 +1,27 @@
+name: Check
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: "Set up Dotnet SDK"
+        run: |
+            sudo apt-get update
+            sudo apt-get install software-properties-common -y
+            sudo add-apt-repository ppa:dotnet/backports
+            sudo apt-get update
+            sudo apt-get install dotnet-sdk-9.0 -y
+
+      - name: Build component
+        run: |
+            dotnet build
+
