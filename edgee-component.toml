@@ -1,6 +1,6 @@
-manifest_version = 1
+manifest-version = 1
 
-[package]
+[component]
 name = "example-cs-component"
 version = "1.0.0"
 category = "data-collection"
@@ -10,6 +10,10 @@ documentation = "https://github.com/edgee-cloud/example-cs-component"
 repository = "https://github.com/edgee-cloud/example-cs-component"
 wit-world-version = "0.4.0"
 
-[package.build]
+[component.build]
 command = "dotnet build && mv ./bin/Debug/net9.0/wasi-wasm/publish/example-cs-component.wasm ./dc-component.wasm"
 output_path = "./dc-component.wasm"
+
+[component.settings.example]
+title = "Example Config Field"
+type = "string"
