@@ -8,12 +8,13 @@ namespace DataCollectionWorld.wit.exports.edgee.protocols;
 */
 
 public struct Settings {
-    public string example = string.Empty;
+    public string Example { get; }
 
     public Settings(List<(string, string)> settings) {
-        for (int i = 0; i < settings.Count; i++) {
-            if (settings[i].Item1 == "example") {
-                this.example = settings[i].Item2;
+        Example = string.Empty;
+        foreach (var setting in settings) {
+            if (setting.Item1 == "example") {
+                Example = setting.Item2;
             }
         }
     }
@@ -27,7 +28,7 @@ public class DataCollectionImpl: IDataCollection {
         {
             ("Authorization", "Bearer exampleToken123"),
             ("Content-Type", "application/json"),
-            ("example", s.example)
+            ("example", s.Example)
         };
         string body = "{\"event\": \"page\"}";
         bool forward_client_headers = true;
@@ -40,7 +41,7 @@ public class DataCollectionImpl: IDataCollection {
         {
             ("Authorization", "Bearer exampleToken123"),
             ("Content-Type", "application/json"),
-            ("example", s.example)
+            ("example", s.Example)
         };
         string body = "{\"event\": \"track\"}";
         bool forward_client_headers = true;
@@ -53,7 +54,7 @@ public class DataCollectionImpl: IDataCollection {
         {
             ("Authorization", "Bearer exampleToken123"),
             ("Content-Type", "application/json"),
-            ("example", s.example)
+            ("example", s.Example)
         };
         string body = "{\"event\": \"user\"}";
         bool forward_client_headers = true;
