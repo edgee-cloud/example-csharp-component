@@ -24,6 +24,13 @@ jobs:
             - name: Install edgee
               uses: edgee-cloud/install-edgee-cli@v0.1.0
 
+            - name: Verify .wasm file exists
+              run: |
+                  if [ ! -f "./dc_component.wasm" ]; then
+                    echo "❌ Error: dc_component.wasm not found" >&2
+                    exit 1
+                  fi
+
             - name: Build component
               run: |
                   edgee components build
