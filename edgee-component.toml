@@ -11,8 +11,8 @@ repository = "https://github.com/edgee-cloud/example-cs-component"
 wit-world-version = "0.4.0"
 
 [component.build]
-command = "dotnet build && ls -lRa ./bin/Debug/net9.0/wasi-wasm/ && mv ./bin/Debug/net9.0/wasi-wasm/publish/example-cs-component.wasm ./dc-component.wasm"
-output_path = "./dc-component.wasm"
+command = "dotnet build &&  mv ./bin/Debug/net9.0/wasi-wasm/publish/example-cs-component.wasm ./dc_component.wasm"
+output_path = "./dc_component.wasm"
 
 [component.settings.example]
 title = "Example Config Field"
