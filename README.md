@@ -15,7 +15,7 @@ This is an example of a C# Edgee Component.
 
 ## Setup
 Requirements:
-- [edgee-cli] (https://github.com/edgee-cloud/edgee)
+- [edgee-cli](https://github.com/edgee-cloud/edgee)
 - dotnet SDK 9.0
 - Modify the csproj file to match your OS:
     - On Linux
