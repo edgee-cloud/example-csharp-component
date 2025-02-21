@@ -1,4 +1,4 @@
-namespace DataCollectionWorld.wit.exports.edgee.protocols;
+namespace DataCollectionWorld.wit.exports.edgee.components;
 
 /*
     This is the main class that you will need to implement. It should inherit from
