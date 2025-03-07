@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <Wit Remove="**\*.wit"  />
-    <Wit Include="wit" World="data-collection" />
+    <Wit Include=".edgee/wit" World="data-collection" />
   </ItemGroup>
 
 </Project>
