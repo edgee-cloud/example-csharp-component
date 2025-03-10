@@ -8,6 +8,7 @@ subcategory = "analytics"
 description = "Example CSharp component for data collection"
 documentation = "https://github.com/edgee-cloud/example-cs-component"
 repository = "https://github.com/edgee-cloud/example-cs-component"
+language = "CSharp"
 wit-version = "0.5.0"
 
 [component.build]
