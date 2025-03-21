@@ -12,7 +12,7 @@ language = "CSharp"
 wit-version = "1.0.0"
 
 [component.build]
-command = "dotnet build &&  mv ./bin/Debug/net9.0/wasi-wasm/publish/example-cs-component.wasm ./dc_component.wasm"
+command = "dotnet build &&  mv ./bin/Debug/net10.0/wasi-wasm/publish/example-cs-component.wasm ./dc_component.wasm"
 output_path = "./dc_component.wasm"
 
 [component.settings.example]

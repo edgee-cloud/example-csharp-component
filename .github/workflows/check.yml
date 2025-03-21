@@ -15,17 +15,16 @@ jobs:
 
             - name: "Set up Dotnet SDK"
               run: |
-                  sudo apt-get update
-                  sudo apt-get install software-properties-common -y
-                  sudo add-apt-repository ppa:dotnet/backports
-                  sudo apt-get update
-                  sudo apt-get install dotnet-sdk-9.0 -y
+                wget https://download.visualstudio.microsoft.com/download/pr/c526dc3b-5240-4449-ba07-ed9a3610fe09/442f1cf6e4e832eea0b045f9e108c8b7/dotnet-sdk-10.0.100-preview.2.25164.34-linux-x64.tar.gz
+                mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-10.0.100-preview.2.25164.34-linux-x64.tar.gz -C $HOME/dotnet
 
             - name: Install edgee
               uses: edgee-cloud/install-edgee-cli@v0.1.0
 
             - name: Build component
               run: |
+                  export DOTNET_ROOT=$HOME/dotnet
+                  export PATH=$HOME/dotnet:$PATH
                   edgee components build
 
             - name: Verify .wasm file exists
