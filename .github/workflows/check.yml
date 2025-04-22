@@ -1,38 +1,37 @@
 name: Check
 on:
-    push:
-        branches:
-            - main
-    pull_request:
+  push:
+    branches:
+      - main
+  pull_request:
 
 env:
   EDGEE_API_TOKEN: ${{ secrets.EDGEE_API_TOKEN }}
 
 jobs:
-    test:
-        name: test
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
+  full-ci:
+    name: Full CI (${{ matrix.dir }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: [consent-management, data-collection]
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+       - name: Checkout
+         uses: actions/checkout@v4
 
-            - name: "Set up Dotnet SDK"
-              run: |
-                wget https://download.visualstudio.microsoft.com/download/pr/c526dc3b-5240-4449-ba07-ed9a3610fe09/442f1cf6e4e832eea0b045f9e108c8b7/dotnet-sdk-10.0.100-preview.2.25164.34-linux-x64.tar.gz
-                mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-10.0.100-preview.2.25164.34-linux-x64.tar.gz -C $HOME/dotnet
+       - name: "Set up Dotnet SDK"
+         run: |
+           wget https://download.visualstudio.microsoft.com/download/pr/c526dc3b-5240-4449-ba07-ed9a3610fe09/442f1cf6e4e832eea0b045f9e108c8b7/dotnet-sdk-10.0.100-preview.2.25164.34-linux-x64.tar.gz
+           mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-10.0.100-preview.2.25164.34-linux-x64.tar.gz -C $HOME/dotnet
 
-            - name: Install edgee
-              uses: edgee-cloud/install-edgee-cli@v0.2.0
+       - name: Install edgee
+         uses: edgee-cloud/install-edgee-cli@v0.2.0
 
-            - name: Build component
-              run: |
-                  export DOTNET_ROOT=$HOME/dotnet
-                  export PATH=$HOME/dotnet:$PATH
-                  edgee component build
-
-            - name: Verify .wasm file exists
-              run: |
-                  if [ ! -f "./dc_component.wasm" ]; then
-                    echo "❌ Error: dc_component.wasm not found" >&2
-                    exit 1
-                  fi
+       - name: Build component
+         run: |
+             export DOTNET_ROOT=$HOME/dotnet
+             export PATH=$HOME/dotnet:$PATH
+             edgee component build
