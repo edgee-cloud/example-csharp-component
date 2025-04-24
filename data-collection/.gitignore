@@ -1,0 +1,4 @@
+.edgee/
+bin/
+obj/
+component.wasm

@@ -1,19 +1,19 @@
 manifest-version = 1
 
 [component]
-name = "example-cs-component"
+name = "example-cs-consent-management-component"
 version = "1.0.0"
-category = "data-collection"
-subcategory = "analytics"
-description = "Example CSharp component for data collection"
+category = "consent-management"
+subcategory = "consent-mapping"
+description = "Example CSharp component for consent management"
 documentation = "https://github.com/edgee-cloud/example-cs-component"
 repository = "https://github.com/edgee-cloud/example-cs-component"
 language = "CSharp"
 wit-version = "1.0.0"
 
 [component.build]
-command = "dotnet build &&  mv ./bin/Debug/net10.0/wasi-wasm/publish/example-cs-component.wasm ./dc_component.wasm"
-output_path = "./dc_component.wasm"
+command = "dotnet build &&  mv ./bin/Debug/net10.0/wasi-wasm/publish/example-cs-component.wasm ./component.wasm"
+output_path = "./component.wasm"
 
 [component.settings.example]
 title = "Example Config Field"
