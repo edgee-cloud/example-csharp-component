@@ -1,0 +1,20 @@
+manifest-version = 1
+
+[component]
+name = "example-cs-edge-function-component"
+version = "1.0.0"
+category = "edge-function"
+subcategory = "analytics"
+description = "Example CSharp component for edge-function"
+documentation = "https://github.com/edgee-cloud/example-cs-component"
+repository = "https://github.com/edgee-cloud/example-cs-component"
+language = "CSharp"
+wit-version = "1.0.0"
+
+[component.build]
+command = "dotnet build &&  mv ./bin/Debug/net10.0/wasi-wasm/publish/example-cs-component.wasm ./component.wasm"
+output_path = "./component.wasm"
+
+[component.settings.example]
+title = "Example Config Field"
+type = "string"
