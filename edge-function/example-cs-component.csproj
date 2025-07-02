@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <Wit Remove="**\*.wit"  />
-    <Wit Include=".edgee/wit" World="consent-management" />
+    <Wit Include=".edgee/wit" World="edge-function" />
   </ItemGroup>
 
 </Project>

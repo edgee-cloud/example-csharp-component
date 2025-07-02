@@ -1,11 +1,11 @@
 manifest-version = 1
 
 [component]
-name = "example-cs-consent-management-component"
+name = "example-cs-edge-function-component"
 version = "1.0.0"
-category = "consent-management"
-subcategory = "consent-mapping"
-description = "Example CSharp component for consent management"
+category = "edge-function"
+subcategory = "wasm-function"
+description = "Example CSharp component for edge-function"
 documentation = "https://github.com/edgee-cloud/example-cs-component"
 repository = "https://github.com/edgee-cloud/example-cs-component"
 language = "CSharp"
